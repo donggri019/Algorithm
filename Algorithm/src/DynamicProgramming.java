@@ -9,6 +9,11 @@ public class DynamicProgramming {
 	// 피보나치의 재귀오버헤드를 해결하기 위한 방
 	// 이전에 구한 답을 다시 가져오는 방법
 	// 분할 정복 알고리즘과 매우 유사
+	
+	// 하나의 문제를 한번만 풀도록 하는 알고리즘
+	// 큰문제를 작은 문제로 나눈다 -> 작은 문제에서 구한 정잡은 그것을 포함하는 큰 문제에서도 동일
+	// 메모이제이션 : 이미 계산한 결과는 배열에 담아놓음
+	
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 		//System.out.println("fiboOrigin(10) : " + fiboOrigin(10));
@@ -21,7 +26,9 @@ public class DynamicProgramming {
 		//change();
 		
 		// 정수 삼각형 최대값 
-		bestTriangle();
+		//bestTriangle();
+		
+		
 		
 	}
 
