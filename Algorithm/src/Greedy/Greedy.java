@@ -8,16 +8,19 @@ public class Greedy {
 		
 		long beforeTime = System.currentTimeMillis(); //코드 실행 전에 시간 받아오기
         
-		int[] arr = {2,3,1,2,2};
-		guild(5, arr);
+		//print(solution("BBBAAAB"))#9
+		//print(solution("ABABAAAAABA")) #11
+		System.out.println(joystick("JEROEN"));
 		        
 		long afterTime = System.currentTimeMillis(); // 코드 실행 후에 시간 받아오기
 		long secDiffTime = (afterTime - beforeTime); //두 시간에 차 계산
 		System.out.println("수행 속도(ms) : "+secDiffTime);
 		
-		change();
-		devideMinus(25, 3);
-		mulOrPlus("02984");
+		//change();
+		//devideMinus(25, 3);
+		//mulOrPlus("02984");
+		//int[] arr = {2,3,1,2,2};
+		//guild(5, arr);
 		
 		
 	}
@@ -94,6 +97,28 @@ public class Greedy {
 		System.out.println("result : " + result);
 	}
 	
-	
+	public static int joystick(String name) {
+
+		int moveCnt = 0;
+		int len = name.length();
+		int minMove = len-1;
+		
+		// BBBAAAB #9
+		// BBBAABB 11
+		// ABABAAAAABA #11
+		
+		for (int i=0; i<name.length(); i++) {
+			moveCnt += Math.min('Z'- name.charAt(i) + 1, name.charAt(i) - 'A');
+			
+			int nextIdx = i+1;
+			while(nextIdx < len && name.charAt(nextIdx) == 'A') nextIdx++;
+			
+			minMove = Math.min(minMove, i+i+(len-nextIdx));
+			
+		}
+		 moveCnt += minMove;
+		
+		return moveCnt;
+	}
 	
 }
